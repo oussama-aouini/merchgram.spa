@@ -3,7 +3,7 @@ import {
   UnauthenticatedTemplate,
 } from "@azure/msal-react";
 import Home from "./Home";
-import Login from "./Login";
+import { LoginPage } from "./LoginPage";
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
         <Home />
       </AuthenticatedTemplate>
       <UnauthenticatedTemplate>
-        <Login />
+        <LoginPage />
       </UnauthenticatedTemplate>
     </>
   );

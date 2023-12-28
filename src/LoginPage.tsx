@@ -1,6 +1,6 @@
 import { useMsal } from '@azure/msal-react';
 
-const LoginPage = () => {
+export const LoginPage = () => {
   const { instance } = useMsal();
 
   const initializeSignIn = () => {
@@ -9,7 +9,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <div onClick={initializeSignIn}>Sign in</div>
+      <button onClick={initializeSignIn}>Sign in</button>
     </>
   );
 };

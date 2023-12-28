@@ -13,22 +13,22 @@ import { Configuration } from "@azure/msal-browser";
  */
 export const b2cPolicies = {
     names: {
-        signUpSignIn: 'B2C_1_susi_v2',
-        forgotPassword: 'B2C_1_reset_v3',
-        editProfile: 'B2C_1_edit_profile_v2',
+        signUpSignIn: 'B2C_1_susi',
+        // forgotPassword: 'B2C_1_reset_v3',
+        // editProfile: 'B2C_1_edit_profile_v2',
     },
     authorities: {
         signUpSignIn: {
-            authority: 'https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi_v2',
+            authority: 'https://oadevorg.b2clogin.com/oadevorg.onmicrosoft.com/B2C_1_susi',
         },
-        forgotPassword: {
-            authority: 'https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/B2C_1_reset_v3',
-        },
-        editProfile: {
-            authority: 'https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile_v2',
-        },
+        // forgotPassword: {
+        //     authority: 'https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/B2C_1_reset_v3',
+        // },
+        // editProfile: {
+        //     authority: 'https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile_v2',
+        // },
     },
-    authorityDomain: 'fabrikamb2c.b2clogin.com',
+    authorityDomain: 'oadevorg.b2clogin.com',
 };
 
 
@@ -39,10 +39,10 @@ export const b2cPolicies = {
  */
 export const msalConfig: Configuration = {
     auth: {
-        clientId: '09dd92cf-78ba-4c25-94b2-ec3f3ef84352', // This is the ONLY mandatory field that you need to supply.
+        clientId: '97c0326b-df60-49ac-aa45-298e400f2d05', // This is the ONLY mandatory field that you need to supply.
         authority: b2cPolicies.authorities.signUpSignIn.authority, // Choose SUSI as your default authority.
         knownAuthorities: [b2cPolicies.authorityDomain], // Mark your B2C tenant's domain as trusted.
-        redirectUri: '/home', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.origin
+        redirectUri: '/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.origin
         postLogoutRedirectUri: '/', // Indicates the page to navigate after logout.
         navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
     },
@@ -82,11 +82,11 @@ export const msalConfig: Configuration = {
  * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md
  */
 export const protectedResources = {
-    apiTodoList: {
-        endpoint: 'http://localhost:5000/api/todolist',
+    apiMerchgram: {
+        endpoint: 'http://localhost:5000/',
         scopes: {
-            read: ['https://fabrikamb2c.onmicrosoft.com/TodoList/ToDoList.Read'],
-            write: ['https://fabrikamb2c.onmicrosoft.com/TodoList/ToDoList.ReadWrite'],
+            read: ['https://oadevorg.onmicrosoft.com/merchgram-api/merchgram.read'],
+            write: ['https://oadevorg.onmicrosoft.com/merchgram-api/merchgram.write'],
         },
     },
 };
@@ -98,5 +98,5 @@ export const protectedResources = {
  * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
  */
 export const loginRequest = {
-    scopes: [...protectedResources.apiTodoList.scopes.read, ...protectedResources.apiTodoList.scopes.write],
+    scopes: [...protectedResources.apiMerchgram.scopes.read, ...protectedResources.apiMerchgram.scopes.write],
 };
