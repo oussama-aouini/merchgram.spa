@@ -4,6 +4,7 @@
  */
 
 import { LogLevel } from "@azure/msal-browser";
+import { Configuration } from "@azure/msal-browser";
 
 /**
  * Enter here the user flows and custom policies for your B2C application
@@ -36,12 +37,12 @@ export const b2cPolicies = {
  * For a full list of MSAL.js configuration parameters, visit:
  * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md 
  */
-export const msalConfig = {
+export const msalConfig: Configuration = {
     auth: {
-        clientId: '97c0326b-df60-49ac-aa45-298e400f2d05', // This is the ONLY mandatory field that you need to supply.
+        clientId: '09dd92cf-78ba-4c25-94b2-ec3f3ef84352', // This is the ONLY mandatory field that you need to supply.
         authority: b2cPolicies.authorities.signUpSignIn.authority, // Choose SUSI as your default authority.
         knownAuthorities: [b2cPolicies.authorityDomain], // Mark your B2C tenant's domain as trusted.
-        redirectUri: 'http://localhost:5173/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.origin
+        redirectUri: '/home', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.origin
         postLogoutRedirectUri: '/', // Indicates the page to navigate after logout.
         navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
     },
