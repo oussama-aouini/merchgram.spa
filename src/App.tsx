@@ -2,8 +2,8 @@ import {
   AuthenticatedTemplate,
   UnauthenticatedTemplate,
 } from "@azure/msal-react";
-import Home from "./Home";
-import { LoginPage } from "./LoginPage";
+import Home from "./pages/Home";
+import { LoginPage } from "./pages/LoginPage";
 
 const App = () => {
   return (
